@@ -19,9 +19,18 @@ namespace CRUD
     /// </summary>
     public partial class updatePage : Window
     {
-        public updatePage()
+
+        WPFCrud _db = new WPFCrud();
+        int Id
+        public updatePage(int OrderId)
         {
             InitializeComponent();
+            Id = new OrderId;
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            Order updateOrder = ()
         }
     }
 }

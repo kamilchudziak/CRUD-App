@@ -19,11 +19,39 @@ namespace CRUD
     /// </summary>
     public partial class InsertPage : Window
     {
+
+
+        WPFCrud _db = new WPFCrud();
         public InsertPage()
         {
             InitializeComponent();
         }
 
-        
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Client newClient= new Client()
+            {
+                FirstName = firstNameTextBox.Text,
+                LastName = lastNameTextBox.Text,
+                PhoneNumber = Int32.Parse(phoneNumberTextBox.Text)
+
+            };
+            _db.Client.Add(newClient);
+            _db.SaveChanges();
+            MainWindow.datagrid.ItemsSource = _db.Client.ToList();
+
+            Order newOrder = new Order()
+            {
+                ProductName = productNameTextBox.Text,
+                Quantity = Int32.Parse(quantityTextBox.Text)
+                
+
+            };
+            _db.Order.Add(newOrder);
+            _db.SaveChanges();
+            MainWindow.datagrid.ItemsSource = _db.Order.ToList();
+            this.Hide();
+            
+        }
     }
 }

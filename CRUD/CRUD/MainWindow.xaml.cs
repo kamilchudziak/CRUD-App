@@ -20,9 +20,32 @@ namespace CRUD
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        WPFCrud _db = new WPFCrud(); //WPFCrud - Entity Container Name
+        public static DataGrid datagrid;
         public MainWindow()
         {
             InitializeComponent();
+            Load();
+        }
+
+        private void Load()
+        {
+            myDataGrid.ItemsSource = _db.Order.ToList();
+            dataGrid = myDataGrid;
+        }
+
+        private void InsertButton_Click(object sender, RoutedEventArgs e)
+        {
+            InsertPage Ipage = new InsertPage();
+            Ipage.ShowDialog();
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            int Id = (myDataGrid.SelectedItem as Order).OrderId;
+            updatePage Upage = new updatePage(Id);
+            Upage.ShowDialog();
         }
     }
 }
