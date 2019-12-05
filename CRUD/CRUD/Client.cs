@@ -21,12 +21,8 @@ namespace CRUD
         }
     
         public int ClientId { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string PostCode { get; set; }
-        public string StreetName { get; set; }
-        public Nullable<short> BuildingNo { get; set; }
-        public string Town { get; set; }
         public int PhoneNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

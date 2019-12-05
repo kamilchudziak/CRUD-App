@@ -15,15 +15,13 @@ using System.Windows.Shapes;
 namespace CRUD
 {
     /// <summary>
-    /// Interaction logic for InsertPage.xaml
+    /// Interaction logic for updatePage.xaml
     /// </summary>
-    public partial class InsertPage : Window
+    public partial class updatePage : Window
     {
-        public InsertPage()
+        public updatePage()
         {
             InitializeComponent();
         }
-
-        
     }
 }

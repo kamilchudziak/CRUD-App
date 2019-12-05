@@ -10,12 +10,8 @@
             <PropertyRef Name="ClientId" />
           </Key>
           <Property Name="ClientId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="text" />
+          <Property Name="FirstName" Type="text" />
           <Property Name="LastName" Type="text" />
-          <Property Name="PostCode" Type="text" />
-          <Property Name="StreetName" Type="text" />
-          <Property Name="BuildingNo" Type="smallint" />
-          <Property Name="Town" Type="text" />
           <Property Name="PhoneNumber" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Order">
@@ -57,12 +53,8 @@
             <PropertyRef Name="ClientId" />
           </Key>
           <Property Name="ClientId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="PostCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="StreetName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="BuildingNo" Type="Int16" />
-          <Property Name="Town" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Client" FromRole="Client" ToRole="Order" />
         </EntityType>
@@ -88,7 +80,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CrudEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WPFCrud" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Order" EntityType="Self.Order" />
           <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
@@ -101,17 +93,13 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CrudModelStoreContainer" CdmEntityContainer="CrudEntities">
+        <EntityContainerMapping StorageEntityContainer="CrudModelStoreContainer" CdmEntityContainer="WPFCrud">
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="CrudModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="ClientId" ColumnName="ClientId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
-                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
-                <ScalarProperty Name="BuildingNo" ColumnName="BuildingNo" />
-                <ScalarProperty Name="Town" ColumnName="Town" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -13,10 +13,10 @@ namespace CRUD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CrudEntities : DbContext
+    public partial class WPFCrud : DbContext
     {
-        public CrudEntities()
-            : base("name=CrudEntities")
+        public WPFCrud()
+            : base("name=WPFCrud")
         {
         }
     

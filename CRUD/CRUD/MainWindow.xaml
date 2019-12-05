@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="600">
+        Title="MainWindow" Height="600" Width="800">
     <DockPanel>
-        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*"/>
+        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Order ID" Binding="{Binding orderId}"/>
+                <DataGridTextColumn Header="Product Name" Binding="{Binding productName}"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}"/>
+                <DataGridTextColumn Header="Customer ID" Binding="{Binding clientId}"/>
+                <DataGridTextColumn Header="Customer First Name" Binding="{Binding firstName}"/>
+                <DataGridTextColumn Header="Customer Last Name" Binding="{Binding lastName}"/>
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding phoneNumber}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="Action"/>
+                    </DataTemplate>
+                </DataGridTemplateColumn.HeaderTemplate>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="insertButton" Content="Dodaj"/>
+                            <Button x:Name="updateButton" Content="Edytuj"/>
+                            <Button x:Name="deleteButton" Content="Usuń"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
     </DockPanel>
 </Window>
