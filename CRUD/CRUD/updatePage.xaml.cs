@@ -20,7 +20,7 @@ namespace CRUD
     public partial class updatePage : Window
     {
 
-        WPFCrud _db = new WPFCrud();
+        CrudWPF _db = new CrudWPF();
         int Id;
         public updatePage(int OrderId)
         {
@@ -33,24 +33,17 @@ namespace CRUD
             Order updateOrder = (from m in _db.Order
                                  where m.OrderId == Id
                                  select m).Single();
-            updateOrder.ProductName = productNameTextBox.Text;
+            updateOrder.Product = productNameTextBox.Text;
             updateOrder.Quantity = Int32.Parse(quantityTextBox.Text);
+            updateOrder.FirstName = firstNameTextBox.Text;
+            updateOrder.LastName = firstNameTextBox.Text;
+            updateOrder.PhoneNumber = firstNameTextBox.Text;
 
             _db.SaveChanges();
             MainWindow.datagrid.ItemsSource = _db.Order.ToList();
 
 
-            Client updateClient = (from k in _db.Client
-                                   where k.ClientId == Id
-                                   select k).Single();
-            updateClient.FirstName = firstNameTextBox.Text;
-            updateClient.LastName = lastNameTextBox.Text;
-            updateClient.PhoneNumber = phoneNumberTextBox.Text;
-
-            
-
-            _db.SaveChanges();
-            MainWindow.datagrid.ItemsSource = _db.Order.ToList();
+           
 
             this.Hide();
 

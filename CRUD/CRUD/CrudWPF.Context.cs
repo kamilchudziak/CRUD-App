@@ -13,10 +13,10 @@ namespace CRUD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WPFCrud : DbContext
+    public partial class CrudWPF : DbContext
     {
-        public WPFCrud()
-            : base("name=WPFCrud")
+        public CrudWPF()
+            : base("name=CrudWPF")
         {
         }
     
@@ -25,7 +25,6 @@ namespace CRUD
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Order> Order { get; set; }
     }
 }

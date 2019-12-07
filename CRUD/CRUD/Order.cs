@@ -15,10 +15,10 @@ namespace CRUD
     public partial class Order
     {
         public int OrderId { get; set; }
-        public int ClientId { get; set; }
-        public string ProductName { get; set; }
+        public string Product { get; set; }
         public int Quantity { get; set; }
-    
-        public virtual Client Client { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

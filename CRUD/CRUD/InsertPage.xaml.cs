@@ -21,7 +21,7 @@ namespace CRUD
     {
 
 
-        WPFCrud _db = new WPFCrud();
+        CrudWPF _db = new CrudWPF();
         public InsertPage()
         {
             InitializeComponent();
@@ -29,24 +29,17 @@ namespace CRUD
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Client newClient= new Client()
+            
+          
+            Order newOrder = new Order()
             {
+                Product = productNameTextBox.Text,
+                Quantity = Int32.Parse(quantityTextBox.Text),
                 FirstName = firstNameTextBox.Text,
                 LastName = lastNameTextBox.Text,
                 PhoneNumber = phoneNumberTextBox.Text
 
-            };
-            _db.Client.Add(newClient);
-            _db.SaveChanges();
-            MainWindow.datagrid.ItemsSource = _db.Client.ToList();
-
-            Order newOrder = new Order()
-            {
-                ProductName = productNameTextBox.Text,
-                Quantity = Int32.Parse(quantityTextBox.Text)
-                
-
-            };
+        };
             _db.Order.Add(newOrder);
             _db.SaveChanges();
             MainWindow.datagrid.ItemsSource = _db.Order.ToList();

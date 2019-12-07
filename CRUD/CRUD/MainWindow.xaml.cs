@@ -21,7 +21,7 @@ namespace CRUD
     public partial class MainWindow : Window
     {
 
-        WPFCrud _db = new WPFCrud(); //WPFCrud - Entity Container Name
+        CrudWPF _db = new CrudWPF(); //WPFCrud - Entity Container Name
         public static DataGrid datagrid;
 
       

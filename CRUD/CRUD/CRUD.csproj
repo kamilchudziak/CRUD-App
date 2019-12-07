@@ -63,6 +63,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CrudWPF.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrudWPF.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CrudWPF.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrudWPF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CrudWPF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrudWPF.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>CrudWPF.tt</DependentUpon>
+    </Compile>
     <Compile Include="updatePage.xaml.cs">
       <DependentUpon>updatePage.xaml</DependentUpon>
     </Compile>
@@ -78,24 +96,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Client.cs">
-      <DependentUpon>Crud.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Crud.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Crud.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Crud.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Crud.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModelCrud.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModelCrud.edmx</DependentUpon>
-    </Compile>
     <Compile Include="InsertPage.xaml.cs">
       <DependentUpon>InsertPage.xaml</DependentUpon>
     </Compile>
@@ -109,9 +109,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Order.cs">
-      <DependentUpon>Crud.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -129,12 +126,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="EntityModelCrud.edmx">
+    <EntityDeploy Include="CrudWPF.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityModelCrud.Designer.cs</LastGenOutput>
+      <LastGenOutput>CrudWPF.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EntityModelCrud.edmx.diagram">
-      <DependentUpon>EntityModelCrud.edmx</DependentUpon>
+    <None Include="CrudWPF.edmx.diagram">
+      <DependentUpon>CrudWPF.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -149,15 +146,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Crud.Context.tt">
+    <Content Include="CrudWPF.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityModelCrud.edmx</DependentUpon>
-      <LastGenOutput>Crud.Context.cs</LastGenOutput>
+      <DependentUpon>CrudWPF.edmx</DependentUpon>
+      <LastGenOutput>CrudWPF.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Crud.tt">
+    <Content Include="CrudWPF.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityModelCrud.edmx</DependentUpon>
-      <LastGenOutput>Crud.cs</LastGenOutput>
+      <DependentUpon>CrudWPF.edmx</DependentUpon>
+      <LastGenOutput>CrudWPF.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
