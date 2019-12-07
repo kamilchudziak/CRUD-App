@@ -23,6 +23,9 @@ namespace CRUD
 
         WPFCrud _db = new WPFCrud(); //WPFCrud - Entity Container Name
         public static DataGrid datagrid;
+
+      
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +35,7 @@ namespace CRUD
         private void Load()
         {
             myDataGrid.ItemsSource = _db.Order.ToList();
-            dataGrid = myDataGrid;
+            datagrid = myDataGrid;
         }
 
         private void InsertButton_Click(object sender, RoutedEventArgs e)
@@ -46,6 +49,15 @@ namespace CRUD
             int Id = (myDataGrid.SelectedItem as Order).OrderId;
             updatePage Upage = new updatePage(Id);
             Upage.ShowDialog();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            int Id = (myDataGrid.SelectedItem as Order).OrderId;
+            var deleteOrder = _db.Order.Where(m => m.OrderId == Id).Single();
+            _db.Order.Remove(deleteOrder);
+            _db.SaveChanges();
+            myDataGrid.ItemsSource = _db.Order.ToList();
         }
     }
 }

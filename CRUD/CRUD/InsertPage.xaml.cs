@@ -33,7 +33,7 @@ namespace CRUD
             {
                 FirstName = firstNameTextBox.Text,
                 LastName = lastNameTextBox.Text,
-                PhoneNumber = Int32.Parse(phoneNumberTextBox.Text)
+                PhoneNumber = phoneNumberTextBox.Text
 
             };
             _db.Client.Add(newClient);

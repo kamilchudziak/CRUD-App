@@ -13,8 +13,8 @@
                 <DataGridTextColumn Header="Product Name" Binding="{Binding productName}"/>
                 <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}"/>
                 <DataGridTextColumn Header="Customer ID" Binding="{Binding clientId}"/>
-                <DataGridTextColumn Header="Customer First Name" Binding="{Binding firstName}"/>
-                <DataGridTextColumn Header="Customer Last Name" Binding="{Binding lastName}"/>
+                <DataGridTextColumn Header="First Name" Binding="{Binding firstName}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding lastName}"/>
                 <DataGridTextColumn Header="Phone Number" Binding="{Binding phoneNumber}"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.HeaderTemplate>
@@ -27,7 +27,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Button x:Name="insertButton" Content="Dodaj" Click="InsertButton_Click"/>
                             <Button x:Name="updateButton" Content="Edytuj" Click="UpdateButton_Click"/>
-                            <Button x:Name="deleteButton" Content="Usuń"/>
+                            <Button x:Name="deleteButton" Content="Usuń" Click="DeleteButton_Click"/>
                         </StackPanel>
                     </DataTemplate>
                 </DataGridTemplateColumn.CellTemplate>
