@@ -5,22 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD"
         mc:Ignorable="d"
-        Title="updatePage" Height="450" Width="500">
+        Title="updatePage" Height="450" Width="700">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="82,168,0,0" TextWrapping="Wrap" Text="Dane produktu" VerticalAlignment="Top" RenderTransformOrigin="-12.804,-2.686"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,120,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="82,10,0,0" TextWrapping="Wrap" Text="Dane zamawiającego" VerticalAlignment="Top" Height="28" Width="144"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top"/>
-        <Button x:Name="updateButton" Content="Aktualizuj zamówienie" HorizontalAlignment="Left" Margin="195,324,0,0" VerticalAlignment="Top" Width="150" Height="35" Click="UpdateButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,214,0,0" TextWrapping="Wrap" Text="Nazwa" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.448,-0.457"><Run Text="Ilość"/></TextBlock>
-        <TextBox x:Name="firstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="82,54,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="lastNameTextBox" HorizontalAlignment="Left" Height="23" Margin="82,86,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="phoneNumberTextBox" HorizontalAlignment="Left" Height="23" Margin="82,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="productNameTextBox" HorizontalAlignment="Left" Height="23" Margin="82,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="quantityTextBox" HorizontalAlignment="Left" Height="23" Margin="82,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        
+        <TextBlock HorizontalAlignment="Left" Margin="502,12,0,0" TextWrapping="Wrap" Text="Dane produktu" VerticalAlignment="Top" RenderTransformOrigin="-12.804,-2.686"/>
+        <TextBlock HorizontalAlignment="Left" Margin="27,102,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="27,135,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="75,15,0,0" TextWrapping="Wrap" Text="Dane zamawiającego" VerticalAlignment="Top" Height="28" Width="144"/>
+        <TextBlock HorizontalAlignment="Left" Margin="27,67,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top"/>
+        <Button x:Name="updateButton" Content="Aktualizuj zamówienie" HorizontalAlignment="Left" Margin="532,374,0,0" VerticalAlignment="Top" Width="150" Height="35" Click="UpdateButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="446,46,0,0" TextWrapping="Wrap" Text="Nazwa" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="446,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.448,-0.457"><Run Text="Ilość"/></TextBlock>
+        <TextBox x:Name="firstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="99,69,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="lastNameTextBox" HorizontalAlignment="Left" Height="23" Margin="99,101,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="phoneNumberTextBox" HorizontalAlignment="Left" Height="23" Margin="99,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="productNameTextBox" HorizontalAlignment="Left" Height="23" Margin="518,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="quantityTextBox" HorizontalAlignment="Left" Height="23" Margin="518,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="orderDateTextBox" HorizontalAlignment="Left" Margin="528,153,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="417,157,0,0" TextWrapping="Wrap" Text="Data zamówienia" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="434,235,0,0" TextWrapping="Wrap" Text="Data realizacji" VerticalAlignment="Top"/>
+        <DatePicker x:Name="orderEndDateTextBox" HorizontalAlignment="Left" Margin="528,231,0,0" VerticalAlignment="Top"/>
+
 
     </Grid>
 </Window>

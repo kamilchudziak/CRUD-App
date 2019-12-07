@@ -38,6 +38,8 @@ namespace CRUD
             updateOrder.FirstName = firstNameTextBox.Text;
             updateOrder.LastName = firstNameTextBox.Text;
             updateOrder.PhoneNumber = firstNameTextBox.Text;
+            updateOrder.OrderDate = orderDateTextBox.Text;
+            updateOrder.OrderEndDate = orderEndDateTextBox.Text;
 
             _db.SaveChanges();
             MainWindow.datagrid.ItemsSource = _db.Order.ToList();

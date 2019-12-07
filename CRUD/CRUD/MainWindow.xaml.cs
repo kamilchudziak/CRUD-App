@@ -34,8 +34,8 @@ namespace CRUD
 
         private void Load()
         {
-            myDataGrid.ItemsSource = _db.Order.ToList();
-            datagrid = myDataGrid;
+            DataTable.ItemsSource = _db.Order.ToList();
+            datagrid = DataTable;
         }
 
         private void InsertButton_Click(object sender, RoutedEventArgs e)
@@ -46,18 +46,27 @@ namespace CRUD
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            int Id = (myDataGrid.SelectedItem as Order).OrderId;
-            updatePage Upage = new updatePage(Id);
-            Upage.ShowDialog();
+            
+
+            if(DataTable.SelectedItem != null)
+            {
+                int Id = (DataTable.SelectedItem as Order).OrderId;
+                updatePage Upage = new updatePage(Id);
+                Upage.ShowDialog();
+            }
+            
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            int Id = (myDataGrid.SelectedItem as Order).OrderId;
-            var deleteOrder = _db.Order.Where(m => m.OrderId == Id).Single();
-            _db.Order.Remove(deleteOrder);
-            _db.SaveChanges();
-            myDataGrid.ItemsSource = _db.Order.ToList();
+            if (DataTable.SelectedItem != null)
+            {
+                int Id = (DataTable.SelectedItem as Order).OrderId;
+                var deleteOrder = _db.Order.Where(m => m.OrderId == Id).Single();
+                _db.Order.Remove(deleteOrder);
+                _db.SaveChanges();
+                DataTable.ItemsSource = _db.Order.ToList();
+            }
         }
     }
 }

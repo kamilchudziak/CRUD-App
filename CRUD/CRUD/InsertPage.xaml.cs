@@ -37,9 +37,9 @@ namespace CRUD
                 Quantity = Int32.Parse(quantityTextBox.Text),
                 FirstName = firstNameTextBox.Text,
                 LastName = lastNameTextBox.Text,
-                PhoneNumber = phoneNumberTextBox.Text
-
-        };
+                PhoneNumber = phoneNumberTextBox.Text,
+                OrderDate = orderDateTextBox.Text
+            };
             _db.Order.Add(newOrder);
             _db.SaveChanges();
             MainWindow.datagrid.ItemsSource = _db.Order.ToList();

@@ -5,34 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
-    <DockPanel>
-        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*">
+        Title="MainWindow" Height="600" Width="1000">
+    <DockPanel Margin="0,10,0,0" HorizontalAlignment="Left" Width="990">
+        <DataGrid x:Name="DataTable" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" Width="714" Margin="0,43,0,0" IsReadOnly="True" CanUserResizeColumns="True" AlternatingRowBackground="FloralWhite"  AlternationCount="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Order ID" Binding="{Binding OrderId}"/>
-                <DataGridTextColumn Header="Product Name" Binding="{Binding Product}"/>
+                <DataGridTextColumn Header="Product" Binding="{Binding Product}"/>
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
                 <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.HeaderTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="Action"/>
-                    </DataTemplate>
-                </DataGridTemplateColumn.HeaderTemplate>
-                <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="insertButton" Content="Dodaj" Click="InsertButton_Click"/>
-                            <Button x:Name="updateButton" Content="Edytuj" Click="UpdateButton_Click"/>
-                            <Button x:Name="deleteButton" Content="Usuń" Click="DeleteButton_Click"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Date" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn Header="End Date" Binding="{Binding OrderEndDate}"/>
+                
             </DataGrid.Columns>
 
         </DataGrid>
+        <GridSplitter Width="3" RenderTransformOrigin="0.5,0.5" Margin="0,43,0,0" />
+        <Grid Margin="0,43,0,0" RenderTransformOrigin="0.503,0.528">
+            <StackPanel Orientation="Vertical" Margin="0,28,0,251">
+                <Button x:Name="insertButton" Content="Dodaj" Click="InsertButton_Click" Width="150" Height="30" Margin="20"/>
+                <Button x:Name="updateButton" Content="Edytuj" Click="UpdateButton_Click" Width="150" Height="30" Margin="20"/>
+                <Button x:Name="deleteButton" Content="Usuń" Click="DeleteButton_Click" Width="150" Height="30" Margin="20"/>
+
+            </StackPanel>
+            <Calendar Margin="0,301,10,10"/>
+        </Grid>
+        
+        
+        
     </DockPanel>
+    
+        
+
+
+
 </Window>
