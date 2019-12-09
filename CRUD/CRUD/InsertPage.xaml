@@ -7,21 +7,29 @@
         mc:Ignorable="d"
         Title="InsertPage" Height="450" Width="700">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="477,14,0,0" TextWrapping="Wrap" Text="Dane produktu" VerticalAlignment="Top" RenderTransformOrigin="-12.804,-2.686"/>
-        <TextBlock HorizontalAlignment="Left" Margin="26,91,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="26,124,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="96,14,0,0" TextWrapping="Wrap" Text="Dane zamawiającego" VerticalAlignment="Top" Height="28" Width="144"/>
+
         <TextBlock HorizontalAlignment="Left" Margin="26,63,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top"/>
-        <Button x:Name="addButton" Content="Dodaj zamówienie" HorizontalAlignment="Left" Margin="532,374,0,0" VerticalAlignment="Top" Width="150" Height="35" Click="AddButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="430,53,0,0" TextWrapping="Wrap" Text="Produkt" VerticalAlignment="Top" RenderTransformOrigin="0.899,0.398"/>
-        <TextBlock HorizontalAlignment="Left" Margin="448,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.448,-0.457"><Run Text="Ilość"/></TextBlock>
         <TextBox x:Name="firstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="96,56,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,91,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top"/>
         <TextBox x:Name="lastNameTextBox" HorizontalAlignment="Left" Height="23" Margin="96,91,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,124,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top"/>
         <TextBox x:Name="phoneNumberTextBox" HorizontalAlignment="Left" Height="23" Margin="96,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        
+        
+        <TextBlock HorizontalAlignment="Left" Margin="477,14,0,0" TextWrapping="Wrap" Text="Dane produktu" VerticalAlignment="Top" RenderTransformOrigin="-12.804,-2.686"/>
+        
+        <TextBlock HorizontalAlignment="Left" Margin="430,53,0,0" TextWrapping="Wrap" Text="Produkt" VerticalAlignment="Top" RenderTransformOrigin="0.899,0.398"/>
         <TextBox x:Name="productNameTextBox" HorizontalAlignment="Left" Height="23" Margin="477,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="448,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.448,-0.457"><Run Text="Ilość"/></TextBlock>
         <TextBox x:Name="quantityTextBox" HorizontalAlignment="Left" Height="23" Margin="477,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5"/>
+        
         <TextBlock HorizontalAlignment="Left" Margin="381,194,0,0" TextWrapping="Wrap" Text="Data zamówienia" VerticalAlignment="Top"/>
         <DatePicker x:Name="orderDateTextBox" HorizontalAlignment="Left" Margin="477,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.631,-0.414"/>
+
+        
+        <Button x:Name="addButton" Content="Dodaj zamówienie" HorizontalAlignment="Left" Margin="532,374,0,0" VerticalAlignment="Top" Width="150" Height="35" Click="AddButton_Click"/>
 
 
 
