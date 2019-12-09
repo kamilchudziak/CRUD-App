@@ -29,8 +29,9 @@ namespace CRUD
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            
-          
+
+
+
             Order newOrder = new Order()
             {
                 Product = productNameTextBox.Text,
@@ -44,7 +45,7 @@ namespace CRUD
             _db.SaveChanges();
             MainWindow.datagrid.ItemsSource = _db.Order.ToList();
             this.Hide();
-            
+
         }
     }
 }

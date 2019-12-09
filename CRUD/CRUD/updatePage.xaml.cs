@@ -63,7 +63,7 @@ namespace CRUD
             MainWindow.datagrid.ItemsSource = _db.Order.ToList();
 
 
-           
+
 
             this.Hide();
 
