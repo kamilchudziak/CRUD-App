@@ -29,7 +29,7 @@
                 <Button x:Name="deleteButton" Content="Usuń" Click="DeleteButton_Click" Width="150" Height="30" Margin="20"/>
 
             </StackPanel>
-            <Calendar Margin="0,301,10,10"/>
+            <Calendar Margin="-14,301,-13,10" Width="300"/>
         </Grid>
         
         

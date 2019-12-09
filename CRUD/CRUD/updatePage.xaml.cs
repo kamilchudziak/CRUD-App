@@ -26,6 +26,23 @@ namespace CRUD
         {
             InitializeComponent();
             Id = OrderId;
+            FillinTextBox();
+
+        }
+
+        private void FillinTextBox()
+        {
+            Order updateOrder = (from m in _db.Order
+                                 where m.OrderId == Id
+                                 select m).Single();
+
+            productNameTextBox.Text = updateOrder.Product;
+            quantityTextBox.Text = Convert.ToString(updateOrder.Quantity);
+            firstNameTextBox.Text = updateOrder.FirstName;
+            lastNameTextBox.Text = updateOrder.LastName;
+            phoneNumberTextBox.Text = updateOrder.PhoneNumber;
+            orderDateTextBox.Text = updateOrder.OrderDate;
+            orderEndDateTextBox.Text = updateOrder.OrderEndDate;
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
@@ -33,11 +50,12 @@ namespace CRUD
             Order updateOrder = (from m in _db.Order
                                  where m.OrderId == Id
                                  select m).Single();
+
             updateOrder.Product = productNameTextBox.Text;
             updateOrder.Quantity = Int32.Parse(quantityTextBox.Text);
             updateOrder.FirstName = firstNameTextBox.Text;
-            updateOrder.LastName = firstNameTextBox.Text;
-            updateOrder.PhoneNumber = firstNameTextBox.Text;
+            updateOrder.LastName = lastNameTextBox.Text;
+            updateOrder.PhoneNumber = phoneNumberTextBox.Text;
             updateOrder.OrderDate = orderDateTextBox.Text;
             updateOrder.OrderEndDate = orderEndDateTextBox.Text;
 
