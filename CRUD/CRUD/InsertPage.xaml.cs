@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace CRUD
 {
-    /// <summary>
-    /// Interaction logic for InsertPage.xaml
-    /// </summary>
+  
     public partial class InsertPage : Window
     {
 
@@ -27,7 +25,7 @@ namespace CRUD
             InitializeComponent();
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void AddButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych
         {
 
 

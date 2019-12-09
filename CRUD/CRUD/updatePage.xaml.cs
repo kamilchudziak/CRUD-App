@@ -14,26 +14,24 @@ using System.Windows.Shapes;
 
 namespace CRUD
 {
-    /// <summary>
-    /// Interaction logic for updatePage.xaml
-    /// </summary>
+ 
     public partial class updatePage : Window
     {
 
         CrudWPF _db = new CrudWPF();
-        int Id;
-        public updatePage(int OrderId)
+        int id;
+        public updatePage(int orderId)   // Konstruktor klasy updatePage(pobiera wartość orderId z UpdateButton_Click)
         {
             InitializeComponent();
-            Id = OrderId;
-            FillinTextBox();
+            id = orderId;               //  Przypisanie wartości orderId do zmiennej id
+            FillinTextBox();            //  Wywołanie metody
 
         }
 
-        private void FillinTextBox()
+        private void FillinTextBox()    // Metoda która wpisuje do TextBoxów odpowiednie dane z bazy danych bazując na id
         {
             Order updateOrder = (from m in _db.Order
-                                 where m.OrderId == Id
+                                 where m.OrderId == id
                                  select m).Single();
 
             productNameTextBox.Text = updateOrder.Product;
@@ -45,10 +43,10 @@ namespace CRUD
             orderEndDateTextBox.Text = updateOrder.OrderEndDate;
         }
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych bazując na id
         {
             Order updateOrder = (from m in _db.Order
-                                 where m.OrderId == Id
+                                 where m.OrderId == id
                                  select m).Single();
 
             updateOrder.Product = productNameTextBox.Text;

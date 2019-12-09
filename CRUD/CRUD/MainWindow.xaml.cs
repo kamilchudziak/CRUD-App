@@ -15,13 +15,11 @@ using System.Windows.Shapes;
 
 namespace CRUD
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+ 
     public partial class MainWindow : Window
     {
 
-        CrudWPF _db = new CrudWPF(); //WPFCrud - Entity Container Name
+        CrudWPF _db = new CrudWPF(); // WPFCrud - Nazwa Entity Container 
         public static DataGrid datagrid;
 
       
@@ -40,8 +38,8 @@ namespace CRUD
 
         private void InsertButton_Click(object sender, RoutedEventArgs e)
         {
-            InsertPage Ipage = new InsertPage();
-            Ipage.ShowDialog();
+            InsertPage AddRecord = new InsertPage();
+            AddRecord.ShowDialog();
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
@@ -51,8 +49,8 @@ namespace CRUD
             if(DataTable.SelectedItem != null)
             {
                 int Id = (DataTable.SelectedItem as Order).OrderId;
-                updatePage Upage = new updatePage(Id);
-                Upage.ShowDialog();
+                updatePage EditRecord = new updatePage(Id);
+                EditRecord.ShowDialog();
             }
             
         }

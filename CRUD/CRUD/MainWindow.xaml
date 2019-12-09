@@ -24,7 +24,7 @@
         <GridSplitter Width="3" RenderTransformOrigin="0.5,0.5" Margin="0,43,0,0" />
         <Grid Margin="0,43,0,0" RenderTransformOrigin="0.503,0.528">
             <TextBlock Height="35" TextWrapping="Wrap" Text="Zamówienia do realizacji" VerticalAlignment="Top" Margin="-352,-81,376,0" HorizontalAlignment="Center" FontSize="22"/>
-            <StackPanel Orientation="Vertical" Margin="0,10,0,269">
+            <StackPanel Orientation="Vertical" Margin="0,0,0,236">
 
                 <Button x:Name="insertButton" Content="Dodaj" Click="InsertButton_Click" Width="150" Height="30" Margin="20"/>
                 <Button x:Name="updateButton" Content="Edytuj" Click="UpdateButton_Click" Width="150" Height="30" Margin="20"/>
