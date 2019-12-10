@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:CRUD"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000">
-    <DockPanel Margin="0,48,0,0" HorizontalAlignment="Left" Width="990">
-        <DataGrid x:Name="DataTable" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" Width="723" Margin="0,10,0,0" IsReadOnly="True" CanUserResizeColumns="True" AlternatingRowBackground="FloralWhite"  AlternationCount="2">
+    <DockPanel Margin="0,10,0,0" HorizontalAlignment="Left" Width="990">
+        <DataGrid x:Name="DataTable" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" Width="723" Margin="0,58,0,0" IsReadOnly="True" CanUserResizeColumns="True" AlternatingRowBackground="FloralWhite"  AlternationCount="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nr zamówienia" Binding="{Binding OrderId}"/>
                 <DataGridTextColumn Header="Produkt" Binding="{Binding Product}"/>
@@ -21,17 +21,17 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <GridSplitter Width="3" RenderTransformOrigin="0.5,0.5" Margin="0,43,0,0" />
+        <GridSplitter Width="3" RenderTransformOrigin="0.5,0.5" Margin="0,58,0,0" />
         <Grid Margin="0,43,0,0" RenderTransformOrigin="0.503,0.528">
-            <TextBlock Height="35" TextWrapping="Wrap" Text="Zamówienia do realizacji" VerticalAlignment="Top" Margin="-352,-81,376,0" HorizontalAlignment="Center" FontSize="22"/>
-            <StackPanel Orientation="Vertical" Margin="0,0,0,236">
+            <TextBlock Height="36" TextWrapping="NoWrap" Text="Zamówienia do realizacji" VerticalAlignment="Top" Margin="-361,-38,386,0" HorizontalAlignment="Center" FontSize="22"/>
+            <StackPanel Orientation="Vertical" Margin="0,24,0,236">
 
                 <Button x:Name="insertButton" Content="Dodaj" Click="InsertButton_Click" Width="150" Height="30" Margin="20"/>
                 <Button x:Name="updateButton" Content="Edytuj" Click="UpdateButton_Click" Width="150" Height="30" Margin="20"/>
                 <Button x:Name="deleteButton" Content="Usuń" Click="DeleteButton_Click" Width="150" Height="30" Margin="20"/>
             </StackPanel>
-            <Calendar Margin="-14,301,-13,10" Width="300"/>
-            
+            <Calendar Margin="-18,283,-18,28" Width="300"/>
+
         </Grid>
 
 
