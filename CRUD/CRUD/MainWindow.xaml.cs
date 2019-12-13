@@ -48,8 +48,8 @@ namespace CRUD
 
             if(DataTable.SelectedItem != null)
             {
-                int Id = (DataTable.SelectedItem as Order).OrderId;
-                updatePage EditRecord = new updatePage(Id);
+                int id = (DataTable.SelectedItem as Order).OrderId;
+                UpdatePage EditRecord = new UpdatePage(id);
                 EditRecord.ShowDialog();
             }
             
@@ -59,8 +59,8 @@ namespace CRUD
         {
             if (DataTable.SelectedItem != null)
             {
-                int Id = (DataTable.SelectedItem as Order).OrderId;
-                var deleteOrder = _db.Order.Where(m => m.OrderId == Id).Single();
+                int id = (DataTable.SelectedItem as Order).OrderId;
+                var deleteOrder = _db.Order.Where(m => m.OrderId == id).Single();
                 _db.Order.Remove(deleteOrder);
                 _db.SaveChanges();
                 DataTable.ItemsSource = _db.Order.ToList();

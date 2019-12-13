@@ -15,12 +15,12 @@ using System.Windows.Shapes;
 namespace CRUD
 {
  
-    public partial class updatePage : Window
+    public partial class UpdatePage : Window
     {
 
         CrudWPF _db = new CrudWPF();
         int id;
-        public updatePage(int orderId)   // Konstruktor klasy updatePage(pobiera wartość orderId z UpdateButton_Click)
+        public UpdatePage(int orderId)   // Konstruktor klasy updatePage(pobiera wartość orderId z UpdateButton_Click)
         {
             InitializeComponent();
             id = orderId;               //  Przypisanie wartości orderId do zmiennej id
@@ -45,6 +45,10 @@ namespace CRUD
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych bazując na id
         {
+
+            //klasa wywolujaca zapisanie do bazy
+
+
             Order updateOrder = (from m in _db.Order
                                  where m.OrderId == id
                                  select m).Single();
@@ -65,6 +69,14 @@ namespace CRUD
 
             this.Hide();
 
+        }
+
+        private void UpdateButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                //klasa wywolujaca zapisanie do bazy
+            }
         }
     }
 }

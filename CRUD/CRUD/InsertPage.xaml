@@ -29,7 +29,7 @@
         <DatePicker x:Name="orderDateTextBox" HorizontalAlignment="Left" Margin="477,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.631,-0.414"/>
 
         
-        <Button x:Name="addButton" Content="Dodaj zamówienie" HorizontalAlignment="Left" Margin="532,374,0,0" VerticalAlignment="Top" Width="150" Height="35" Click="AddButton_Click"/>
+        <Button x:Name="addButton" Content="Dodaj zamówienie" HorizontalAlignment="Left" Margin="532,374,0,0" VerticalAlignment="Top" Width="150" Height="35" Click="AddButton_Click" KeyDown="AddButton_KeyDown"/>
 
 
 

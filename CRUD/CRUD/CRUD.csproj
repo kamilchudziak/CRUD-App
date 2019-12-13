@@ -78,11 +78,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CrudWPF.edmx</DependentUpon>
     </Compile>
+    <Compile Include="InputCheck.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>CrudWPF.tt</DependentUpon>
     </Compile>
-    <Compile Include="updatePage.xaml.cs">
-      <DependentUpon>updatePage.xaml</DependentUpon>
+    <Compile Include="SaveToDb.cs" />
+    <Compile Include="UpdatePage.xaml.cs">
+      <DependentUpon>UpdatePage.xaml</DependentUpon>
     </Compile>
     <Page Include="InsertPage.xaml">
       <SubType>Designer</SubType>
@@ -103,7 +105,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="updatePage.xaml">
+    <Page Include="UpdatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
