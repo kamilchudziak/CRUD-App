@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CRUD
 {
@@ -18,12 +19,13 @@ namespace CRUD
         private string firstNameCheck;
         private string productNameCheck;
 
-        protected int quantityChecked;
+        private int quantityChecked; 
         private string orderDateChecked;
         private string phoneNumberChecked;
         private string lastNameChecked;
         private string firstNameChecked;
         private string productNameChecked;
+        private bool errorTest = false;
 
         public InputCheck()
         {
@@ -34,16 +36,18 @@ namespace CRUD
             lastNameCheck = DataCheck.LastNameTextBox;
             firstNameCheck = DataCheck.FirstNameTextBox;
             productNameCheck = DataCheck.ProductNameTextBox;
-         }
+        }
+
 
         
+       
 
         public void Test()
         {
 
 
             int valueParsed;
-            if (quantityCheck != null)
+            if (!string.IsNullOrEmpty(quantityCheck))
             {
                 if (Int32.TryParse(quantityCheck.Trim(), out valueParsed))
                 {
@@ -51,73 +55,120 @@ namespace CRUD
                 }
                 else
                 {
-                    throw new ArgumentException("NaN");
+                    errorTest = true;
                 }
             }
             else
             {
-                throw new ArgumentNullException("Null");
+                errorTest = true;
 
             }
 
-            if (orderDateCheck != null)
+            if (!string.IsNullOrEmpty(orderDateCheck))
             {
                 orderDateChecked = orderDateCheck;
             }
             else
             {
-                throw new ArgumentNullException("Null");
+                errorTest = true;
 
             }
 
-            if (phoneNumberCheck != null)
+            if (!string.IsNullOrEmpty(phoneNumberCheck))
             {
                 phoneNumberChecked = phoneNumberCheck;
             }
             else
             {
-                throw new ArgumentNullException("Null");
+                errorTest = true;
 
             }
 
-            if (lastNameCheck != null)
+            if (!string.IsNullOrEmpty(lastNameCheck))
             {
                 lastNameChecked = lastNameCheck;
             }
             else
             {
-                throw new ArgumentNullException("Null");
+                errorTest = true;
 
             }
 
-            if (firstNameCheck != null)
+            if (!string.IsNullOrEmpty(firstNameCheck))
             {
                 firstNameChecked = firstNameCheck;
             }
             else
             {
-                throw new ArgumentNullException("Null");
+                errorTest = true;
+                
 
             }
 
-            if (productNameCheck != null)
+            if (!string.IsNullOrEmpty(productNameCheck))
             {
                 productNameChecked = productNameCheck;
             }
             else
             {
-                throw new ArgumentNullException("Null");
+                errorTest = true;
 
             }
-
-
-
-
-
 
 
         }
 
 
-}
+        public int QuantityChecked
+        {
+            get { return quantityChecked; }
+
+        }
+
+        public string OrderDateChecked
+        {
+            get { return orderDateChecked; }
+
+        }
+
+        public string PhoneNumberChecked
+        {
+            get { return phoneNumberChecked; }
+
+        }
+        public string LastNameChecked
+        {
+            get { return lastNameChecked; }
+
+
+        }
+        public string FirstNameChecked
+        {
+            get { return firstNameChecked; } 
+
+
+        }
+
+        public string ProductNameChecked
+        {
+            get { return productNameChecked; }
+
+
+        }
+
+        public bool ErrorTest
+        {
+            get { return errorTest; }
+
+
+        }
+
+
+
+
+
+
+
+
+    }
 }

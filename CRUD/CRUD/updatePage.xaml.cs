@@ -17,7 +17,7 @@ namespace CRUD
  
     public partial class UpdatePage : Window
     {
-
+/*
         CrudWPF _db = new CrudWPF();
         int id;
         public UpdatePage(int orderId)   // Konstruktor klasy updatePage(pobiera wartość orderId z UpdateButton_Click)
@@ -42,11 +42,11 @@ namespace CRUD
             orderDateTextBox.Text = updateOrder.OrderDate;
             orderEndDateTextBox.Text = updateOrder.OrderEndDate;
         }
-
+        */
         private void UpdateButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych bazując na id
         {
 
-            //klasa wywolujaca zapisanie do bazy
+           /* //klasa wywolujaca zapisanie do bazy
 
 
             Order updateOrder = (from m in _db.Order
@@ -68,15 +68,15 @@ namespace CRUD
 
 
             this.Hide();
-
+            */
         }
 
         private void UpdateButton_KeyDown(object sender, KeyEventArgs e)
-        {
+        {/*
             if (e.Key == Key.Enter)
             {
                 //klasa wywolujaca zapisanie do bazy
-            }
+            }*/
         }
     }
 }

@@ -19,7 +19,7 @@ namespace CRUD
     {
 
 
-        CrudWPF _db = new CrudWPF();
+       //CrudWPF _db = new CrudWPF();
         public InsertPage()
         {
             InitializeComponent();
@@ -30,34 +30,34 @@ namespace CRUD
             public string ProductNameTextBox
             {
                 get { return productNameTextBox.Text; }
-                set { productNameTextBox.Text = value; }
+                
             }
             public string FirstNameTextBox
             {
                 get { return firstNameTextBox.Text; }
-                set { firstNameTextBox.Text = value; }
+                
             }
             public string LastNameTextBox
             {
                 get { return lastNameTextBox.Text; }
-                set { lastNameTextBox.Text = value; }
+               
             }
             public string PhoneNumberTextBox
             {
                 get { return phoneNumberTextBox.Text; }
-                set { phoneNumberTextBox.Text = value; }
+               
             }
             public string OrderDateTextBox
             {
                 get { return orderDateTextBox.Text; }
-                set { orderDateTextBox.Text = value; }
+               
 
             }
 
             public string QuantityTextBox
             {
                 get { return quantityTextBox.Text; }
-                set { quantityTextBox.Text = value; }
+                
             }
 
         
@@ -69,12 +69,24 @@ namespace CRUD
         private void AddButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych
         {
 
-
+            //MessageBox.Show(Convert.ToString(FirstNameTextBox)); // dziala
 
             //klasa wywolujaca zapisanie do bazy
+            try
+            {
+            SaveToDb DbInsert = new SaveToDb();
+            }
+            
+            catch (ArgumentException error)
+            {
+                MessageBox.Show(Convert.ToString(error));
+            }
+            finally
+            {
+            this.Hide();
+            }
 
-
-            SaveToDb();
+            
 
         }
 
@@ -90,16 +102,7 @@ namespace CRUD
         }
     }
 
-    public class Test : Window
-    {
-        public Test() {
-            string product = productNameTextBox.Text;
-            int quantity = Int32.Parse(quantityTextBox.Text);
-            string firstName = firstNameTextBox.Text;
-            string lastName = lastNameTextBox.Text;
-            string phoneNumber = phoneNumberTextBox.Text;
-            string orderDate = orderDateTextBox.Text;
-}
+   
      
        
     
@@ -109,4 +112,4 @@ namespace CRUD
 
     }
 
-}
+
