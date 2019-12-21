@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace CRUD
 {
- 
+
     public partial class MainWindow : Window
     {
 
         CrudWPF _db = new CrudWPF(); // WPFCrud - Nazwa Entity Container 
         public static DataGrid datagrid;
 
-      
+
 
         public MainWindow()
         {
@@ -44,26 +44,39 @@ namespace CRUD
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            
 
-            if(DataTable.SelectedItem != null)
+
+            if (DataTable.SelectedItem != null)
             {
                 int id = (DataTable.SelectedItem as Order).OrderId;
                 UpdatePage EditRecord = new UpdatePage(id);
                 EditRecord.ShowDialog();
             }
-            
+
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataTable.SelectedItem != null)
             {
-                int id = (DataTable.SelectedItem as Order).OrderId;
-                var deleteOrder = _db.Order.Where(m => m.OrderId == id).Single();
-                _db.Order.Remove(deleteOrder);
-                _db.SaveChanges();
-                DataTable.ItemsSource = _db.Order.ToList();
+                MessageBoxResult result = MessageBox.Show("Jesteś pewny, że chcesz usunąć wybrany rekord", "Potwiedzenie operacji", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        int id = (DataTable.SelectedItem as Order).OrderId;
+                        var deleteOrder = _db.Order.Where(m => m.OrderId == id).Single();
+                        _db.Order.Remove(deleteOrder);
+                        _db.SaveChanges();
+                        DataTable.ItemsSource = _db.Order.ToList();
+
+                        MessageBox.Show("Rekord został usunięty pomyślnie", "Potwiedzenie operacji");
+                        break;
+
+                    case MessageBoxResult.No:
+                        break;
+
+                }
+
             }
         }
     }
