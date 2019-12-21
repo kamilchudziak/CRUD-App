@@ -48,9 +48,9 @@ namespace CRUD
 
             if(DataTable.SelectedItem != null)
             {
-                //int id = (DataTable.SelectedItem as Order).OrderId;
-                //UpdatePage EditRecord = new UpdatePage(id);
-                //EditRecord.ShowDialog();
+                int id = (DataTable.SelectedItem as Order).OrderId;
+                UpdatePage EditRecord = new UpdatePage(id);
+                EditRecord.ShowDialog();
             }
             
         }

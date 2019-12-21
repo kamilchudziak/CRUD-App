@@ -17,7 +17,7 @@ namespace CRUD
  
     public partial class UpdatePage : Window
     {
-/*
+
         CrudWPF _db = new CrudWPF();
         int id;
         public UpdatePage(int orderId)   // Konstruktor klasy updatePage(pobiera wartość orderId z UpdateButton_Click)
@@ -42,41 +42,111 @@ namespace CRUD
             orderDateTextBox.Text = updateOrder.OrderDate;
             orderEndDateTextBox.Text = updateOrder.OrderEndDate;
         }
-        */
-        private void UpdateButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych bazując na id
+
+        public string ProductNameTextBox
+        {
+            get { return productNameTextBox.Text; }
+
+
+
+        }
+        public string FirstNameTextBox
+        {
+            get { return firstNameTextBox.Text; }
+
+
+        }
+        public string LastNameTextBox
+        {
+            get { return lastNameTextBox.Text; }
+
+
+        }
+        public string PhoneNumberTextBox
+        {
+            get { return phoneNumberTextBox.Text; }
+
+
+        }
+        public string OrderDateTextBox
+        {
+            get { return orderDateTextBox.Text; }
+
+
+
+        }
+
+        public string OrderEndDateTextBox
+        {
+            get { return orderEndDateTextBox.Text; }
+        }
+
+        public string QuantityTextBox
+        {
+            get { return quantityTextBox.Text; }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e) 
         {
 
-           /* //klasa wywolujaca zapisanie do bazy
+            int insertOrUpdate = 2; // '2' means Update Order in SaveToDb class
+           
 
 
-            Order updateOrder = (from m in _db.Order
-                                 where m.OrderId == id
-                                 select m).Single();
-
-            updateOrder.Product = productNameTextBox.Text;
-            updateOrder.Quantity = Int32.Parse(quantityTextBox.Text);
-            updateOrder.FirstName = firstNameTextBox.Text;
-            updateOrder.LastName = lastNameTextBox.Text;
-            updateOrder.PhoneNumber = phoneNumberTextBox.Text;
-            updateOrder.OrderDate = orderDateTextBox.Text;
-            updateOrder.OrderEndDate = orderEndDateTextBox.Text;
-
-            _db.SaveChanges();
-            MainWindow.datagrid.ItemsSource = _db.Order.ToList();
+            //klasa wywolujaca zapisanie do bazy
+            try
+            {
 
 
+                SaveToDb DbInsert = new SaveToDb(ProductNameTextBox, FirstNameTextBox, LastNameTextBox, PhoneNumberTextBox, OrderDateTextBox, OrderEndDateTextBox, QuantityTextBox, insertOrUpdate, id);
+                MessageBox.Show("Zamówienie zaktualizowane !");
+                this.Hide();
+            }
+
+            catch (ArgumentException error)
+            {
+                MessageBox.Show(Convert.ToString(error));
+            }
 
 
-            this.Hide();
-            */
         }
 
         private void UpdateButton_KeyDown(object sender, KeyEventArgs e)
-        {/*
+        {
             if (e.Key == Key.Enter)
             {
+                int insertOrUpdate = 2; // '2' means Update Order in SaveToDb class
+
+
+
                 //klasa wywolujaca zapisanie do bazy
-            }*/
+                try
+                {
+
+
+                    SaveToDb DbInsert = new SaveToDb(ProductNameTextBox, FirstNameTextBox, LastNameTextBox, PhoneNumberTextBox, OrderDateTextBox, OrderEndDateTextBox, QuantityTextBox, insertOrUpdate, id);
+                    MessageBox.Show("Zamówienie zaktualizowane !");
+                    this.Hide();
+                }
+
+                catch (ArgumentException error)
+                {
+                    MessageBox.Show(Convert.ToString(error));
+                }
+            }
         }
     }
 }

@@ -10,59 +10,68 @@ namespace CRUD
     public class SaveToDb
     {
 
-        public SaveToDb()
+
+        public SaveToDb(string productName, string firstName, string lastName, string phoneNumber, string orderDate, string orderEndDate, string quantity, int insertOrUpdate, int id) // pobranie zawartości TextBox z InsertPage.xaml.cs
         {
+
+
             CrudWPF _db = new CrudWPF();
 
-           
             InputCheck InsertCheck = new InputCheck();
+
+            InsertCheck.ProductNameToCheck = productName;
+            InsertCheck.FirstNameToCheck = firstName;
+            InsertCheck.LastNameToCheck = lastName;
+            InsertCheck.PhoneNumberToCheck = phoneNumber;
+            InsertCheck.OrderDateToCheck = orderDate;
+            InsertCheck.OrderEndDateToCheck = orderEndDate;
+            InsertCheck.QuantityToCheck = quantity;
+
             InsertCheck.Test();
 
 
-
-
-            //Error = InsertCheck.ErrorTest;
-            //MessageBox.Show("Error Test: " + InsertCheck.FirstNameChecked);
-            //InsertPage DataCheck = new InsertPage();
-            //MessageBox.Show(Convert.ToString(DataCheck.FirstNameTextBox));
-            if (InsertCheck.ErrorTest == false)
+            if (insertOrUpdate == 1) // Add new Order
             {
-
                 
                 Order newOrder = new Order()
                 {
-                    
-                Product = InsertCheck.ProductNameChecked,
-                    Quantity = InsertCheck.QuantityChecked,
+
+                    Product = InsertCheck.ProductNameChecked,
                     FirstName = InsertCheck.FirstNameChecked,
                     LastName = InsertCheck.LastNameChecked,
                     PhoneNumber = InsertCheck.PhoneNumberChecked,
-                    OrderDate = InsertCheck.OrderDateChecked
+                    OrderDate = InsertCheck.OrderDateChecked,
+                    Quantity = InsertCheck.QuantityChecked,
                 };
                 _db.Order.Add(newOrder);
                 _db.SaveChanges();
                 MainWindow.datagrid.ItemsSource = _db.Order.ToList();
-            }
-            else
-            {
-                //MessageBox.Show("Error - true");
-                throw new ArgumentException("Error");
+
             }
 
 
-            
+            if (insertOrUpdate == 2) // Update Order
+              {
+                
+                Order updateOrder = (from m in _db.Order
+                                     where m.OrderId == id
+                                     select m).Single();
 
-         /*   private bool error;
-            public bool Error
-        {
-            get { return error; }
+                updateOrder.Product = InsertCheck.ProductNameChecked;
+                updateOrder.FirstName = InsertCheck.FirstNameChecked;
+                updateOrder.LastName = InsertCheck.LastNameChecked;
+                updateOrder.PhoneNumber = InsertCheck.PhoneNumberChecked;
+                updateOrder.OrderDate = InsertCheck.OrderDateChecked;
+                updateOrder.OrderEndDate = InsertCheck.OrderEndDateChecked;
+                updateOrder.Quantity = InsertCheck.QuantityChecked;
 
-            set { error = value; }
-        }
-        */
+               
+                _db.SaveChanges();
+                MainWindow.datagrid.ItemsSource = _db.Order.ToList();
 
+                
 
-
+            }
         }
     }
 }

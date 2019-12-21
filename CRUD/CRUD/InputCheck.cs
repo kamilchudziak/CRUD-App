@@ -11,107 +11,123 @@ namespace CRUD
 
     public class InputCheck
     {
-        InsertPage DataCheck = new InsertPage();
-        private string quantityCheck;
-        private string orderDateCheck;
-        private string phoneNumberCheck;
-        private string lastNameCheck;
-        private string firstNameCheck;
-        private string productNameCheck;
 
-        private int quantityChecked; 
-        private string orderDateChecked;
-        private string phoneNumberChecked;
-        private string lastNameChecked;
-        private string firstNameChecked;
-        private string productNameChecked;
-        private bool errorTest = false;
+
+
+
 
         public InputCheck()
         {
 
-            quantityCheck = DataCheck.QuantityTextBox;
-            orderDateCheck = DataCheck.OrderDateTextBox;
-            phoneNumberCheck = DataCheck.PhoneNumberTextBox;
-            lastNameCheck = DataCheck.LastNameTextBox;
-            firstNameCheck = DataCheck.FirstNameTextBox;
-            productNameCheck = DataCheck.ProductNameTextBox;
+        }
+
+        public string QuantityToCheck
+        {
+
+            get;
+            set;
+
+
+        }
+        public string OrderEndDateToCheck
+        {
+            get;
+            set;
+
+        }
+        public string OrderDateToCheck
+        {
+            get;
+            set;
+
+        }
+
+        public string PhoneNumberToCheck
+        {
+            get;
+            set;
+
+        }
+        public string LastNameToCheck
+        {
+            get;
+            set;
+
+
+        }
+        public string FirstNameToCheck
+        {
+            get;
+            set;
+
+
+        }
+
+        public string ProductNameToCheck
+        {
+            get;
+            set;
+
+
         }
 
 
-        
-       
+
 
         public void Test()
         {
 
 
+
+
             int valueParsed;
-            if (!string.IsNullOrEmpty(quantityCheck))
+            if (!string.IsNullOrEmpty(QuantityToCheck))
             {
-                if (Int32.TryParse(quantityCheck.Trim(), out valueParsed))
+                if ((Int32.TryParse(QuantityToCheck.Trim(), out valueParsed)) == false)
                 {
-                    quantityChecked = Int32.Parse(quantityCheck);
-                }
-                else
-                {
-                    errorTest = true;
+
+                    throw new ArgumentException("Quantity field -> Not a number!");
                 }
             }
             else
             {
-                errorTest = true;
+                throw new ArgumentException("Quantity -> Can not be empty");
 
             }
 
-            if (!string.IsNullOrEmpty(orderDateCheck))
+            if (string.IsNullOrEmpty(OrderDateToCheck))
             {
-                orderDateChecked = orderDateCheck;
-            }
-            else
-            {
-                errorTest = true;
+
+                throw new ArgumentException("Order date -> Can not be empty");
 
             }
 
-            if (!string.IsNullOrEmpty(phoneNumberCheck))
+            if (string.IsNullOrEmpty(PhoneNumberToCheck))
             {
-                phoneNumberChecked = phoneNumberCheck;
-            }
-            else
-            {
-                errorTest = true;
+
+                throw new ArgumentException("Phone number -> Can not be empty");
 
             }
 
-            if (!string.IsNullOrEmpty(lastNameCheck))
+            if (string.IsNullOrEmpty(LastNameToCheck))
             {
-                lastNameChecked = lastNameCheck;
-            }
-            else
-            {
-                errorTest = true;
+
+                throw new ArgumentException("Last name -> Can not be empty");
 
             }
 
-            if (!string.IsNullOrEmpty(firstNameCheck))
+            if (string.IsNullOrEmpty(FirstNameToCheck))
             {
-                firstNameChecked = firstNameCheck;
-            }
-            else
-            {
-                errorTest = true;
-                
+
+                throw new ArgumentException("First name -> Can not be empty");
+
 
             }
 
-            if (!string.IsNullOrEmpty(productNameCheck))
+            if (string.IsNullOrEmpty(ProductNameToCheck))
             {
-                productNameChecked = productNameCheck;
-            }
-            else
-            {
-                errorTest = true;
+
+                throw new ArgumentException("Product -> Can not be empty");
 
             }
 
@@ -121,47 +137,47 @@ namespace CRUD
 
         public int QuantityChecked
         {
-            get { return quantityChecked; }
+
+            get { return Int32.Parse(QuantityToCheck); }
 
         }
+        public string OrderEndDateChecked
+        {
+            get { return OrderEndDateToCheck; }
 
+        }
         public string OrderDateChecked
         {
-            get { return orderDateChecked; }
+            get { return OrderDateToCheck; }
 
         }
 
         public string PhoneNumberChecked
         {
-            get { return phoneNumberChecked; }
+            get { return PhoneNumberToCheck; }
 
         }
         public string LastNameChecked
         {
-            get { return lastNameChecked; }
+            get { return LastNameToCheck; }
 
 
         }
         public string FirstNameChecked
         {
-            get { return firstNameChecked; } 
+            get { return FirstNameToCheck; }
 
 
         }
 
         public string ProductNameChecked
         {
-            get { return productNameChecked; }
+            get { return ProductNameToCheck; }
 
 
         }
 
-        public bool ErrorTest
-        {
-            get { return errorTest; }
 
-
-        }
 
 
 
