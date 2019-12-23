@@ -13,9 +13,6 @@ namespace CRUD
     {
 
 
-
-
-
         public InputCheck()
         {
 
@@ -86,7 +83,7 @@ namespace CRUD
                 if ((Int32.TryParse(QuantityToCheck.Trim(), out valueParsed)) == false)
                 {
 
-                    throw new ArgumentException("Quantity field -> Not a number!");
+                    throw new ArgumentException("Quantity field -> It is not a number!");
                 }
             }
             else

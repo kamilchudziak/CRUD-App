@@ -23,92 +23,92 @@ namespace CRUD
         public InsertPage()
         {
             InitializeComponent();
-       
+
         }
 
-        public string ProductNameTextBox
+        private string ProductNameTextBox
         {
             get { return productNameTextBox.Text; }
-            
-            
+
+
 
         }
-        public string FirstNameTextBox
+        private string FirstNameTextBox
         {
-             get { return firstNameTextBox.Text; }
-            
+            get { return firstNameTextBox.Text; }
+
 
         }
-        public string LastNameTextBox
+        private string LastNameTextBox
         {
             get { return lastNameTextBox.Text; }
-           
+
 
         }
-        public string PhoneNumberTextBox
+        private string PhoneNumberTextBox
         {
-             get { return phoneNumberTextBox.Text; }
-            
+            get { return phoneNumberTextBox.Text; }
+
 
         }
-        public string OrderDateTextBox
+        private string OrderDateTextBox
         {
-           get { return orderDateTextBox.Text; }
-           
+            get { return orderDateTextBox.Text; }
+
 
         }
 
-        public string OrderEndDateTextBox
+        private string OrderEndDateTextBox
         {
             get { return null; }
         }
 
-        public string QuantityTextBox
+        private string QuantityTextBox
         {
             get { return quantityTextBox.Text; }
-            
+
 
         }
 
 
 
 
-    
 
-       
+
+
         private void AddButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych
         {
             int insertOrUpdate = 1; // '1' means Insert new Order in SaveToDb class
             int id = 0; // not used int this case
-           
+
 
             //klasa wywolujaca zapisanie do bazy
             try
             {
-                
-                
+
+
                 SaveToDb DbInsert = new SaveToDb(ProductNameTextBox, FirstNameTextBox, LastNameTextBox, PhoneNumberTextBox, OrderDateTextBox, OrderEndDateTextBox, QuantityTextBox, insertOrUpdate, id);
                 MessageBox.Show("Zamówienie dodane !");
                 this.Hide();
-                
+
             }
-            
+
             catch (ArgumentException error)
             {
-                MessageBox.Show(Convert.ToString(error));
+                MessageBox.Show(Convert.ToString(error.Message));
             }
-            
-            
 
-            
+
+
+
 
         }
 
-       
+
         private void AddButton_KeyDown(object sender, KeyEventArgs e)
         {
 
-            if(e.Key == Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 int insertOrUpdate = 1; // '1' means Insert new Order in SaveToDb class
                 int id = 0; // not used int this case
@@ -127,21 +127,21 @@ namespace CRUD
 
                 catch (ArgumentException error)
                 {
-                    MessageBox.Show(Convert.ToString(error));
+                    MessageBox.Show(Convert.ToString(error.Message));
                 }
             }
 
         }
     }
 
-   
-     
-       
-    
-      
-    
 
 
-    }
+
+
+
+
+
+
+}
 
 

@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace CRUD
 {
- 
+
     public partial class UpdatePage : Window
     {
 
@@ -99,11 +99,11 @@ namespace CRUD
 
 
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e) 
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
 
             int insertOrUpdate = 2; // '2' means Update Order in SaveToDb class
-           
+
 
 
             //klasa wywolujaca zapisanie do bazy
@@ -144,7 +144,7 @@ namespace CRUD
 
                 catch (ArgumentException error)
                 {
-                    MessageBox.Show(Convert.ToString(error));
+                    MessageBox.Show(Convert.ToString(error.Message));
                 }
             }
         }
