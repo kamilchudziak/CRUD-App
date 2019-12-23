@@ -76,13 +76,13 @@ namespace CRUD
 
 
 
-        private void AddButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych
+        private void AddButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych po kliknięciu przycisku AddButton
         {
-            int insertOrUpdate = 1; // '1' means Insert new Order in SaveToDb class
-            int id = 0; // not used int this case
+            int insertOrUpdate = 1; // '1' oznacza dodanie nowego zamówienia w klasie SaveTo Db
+            int id = 0; // tylko dla przesłania zmiennej
 
 
-            //klasa wywolujaca zapisanie do bazy
+
             try
             {
 
@@ -95,7 +95,7 @@ namespace CRUD
 
             catch (ArgumentException error)
             {
-                MessageBox.Show(Convert.ToString(error.Message));
+                MessageBox.Show(Convert.ToString(error.Message)); // Komunikat o błędzie w przypadku wystąpienia pobierany z klasy InputCheck 
             }
 
 
@@ -105,16 +105,14 @@ namespace CRUD
         }
 
 
-        private void AddButton_KeyDown(object sender, KeyEventArgs e)
+        private void AddButton_KeyDown(object sender, KeyEventArgs e)//Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych po naciśnięciu Enter na przycisku AddButton
         {
 
             if (e.Key == Key.Enter)
             {
-                int insertOrUpdate = 1; // '1' means Insert new Order in SaveToDb class
-                int id = 0; // not used int this case
+                int insertOrUpdate = 1; // '1' oznacza dodanie nowego zamówienia w klasie SaveTo Db
+                int id = 0; // tylko dla przesłania zmiennej
 
-
-                //klasa wywolujaca zapisanie do bazy
                 try
                 {
 
@@ -127,7 +125,7 @@ namespace CRUD
 
                 catch (ArgumentException error)
                 {
-                    MessageBox.Show(Convert.ToString(error.Message));
+                    MessageBox.Show(Convert.ToString(error.Message)); // Komunikat o błędzie w przypadku wystąpienia pobierany z klasy InputCheck 
                 }
             }
 
