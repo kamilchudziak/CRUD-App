@@ -99,14 +99,14 @@ namespace CRUD
 
 
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych po kliknięciu przycisku UpdateButton
         {
 
-            int insertOrUpdate = 2; // '2' means Update Order in SaveToDb class
+            int insertOrUpdate = 2; // '2' oznacza aktualizację zamówienia w klasie SaveTo Db
 
 
 
-            //klasa wywolujaca zapisanie do bazy
+
             try
             {
 
@@ -118,21 +118,21 @@ namespace CRUD
 
             catch (ArgumentException error)
             {
-                MessageBox.Show(Convert.ToString(error));
+                MessageBox.Show(Convert.ToString(error.Message)); // Komunikat o błędzie w przypadku wystąpienia pobierany z klasy InputCheck 
             }
 
 
         }
 
-        private void UpdateButton_KeyDown(object sender, KeyEventArgs e)
+        private void UpdateButton_KeyDown(object sender, KeyEventArgs e)//Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych po naciśnięciu Enter na przycisku UpdateButton
         {
             if (e.Key == Key.Enter)
             {
-                int insertOrUpdate = 2; // '2' means Update Order in SaveToDb class
+                int insertOrUpdate = 2; // '2' oznacza aktualizację zamówienia w klasie SaveTo Db
 
 
 
-                //klasa wywolujaca zapisanie do bazy
+
                 try
                 {
 
@@ -144,7 +144,7 @@ namespace CRUD
 
                 catch (ArgumentException error)
                 {
-                    MessageBox.Show(Convert.ToString(error.Message));
+                    MessageBox.Show(Convert.ToString(error.Message)); // Komunikat o błędzie w przypadku wystąpienia pobierany z klasy InputCheck 
                 }
             }
         }
