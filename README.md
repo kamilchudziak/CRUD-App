@@ -3,7 +3,9 @@ Jest to program typu WPF - Windows Presentation Foundation połączony z bazą d
 Posiada funkcje:  dodawania, modyfikowania i usuwania wpisów.
 
 W folderze Instalator znajduje się instalator programu oraz ikona do skrótu.
+
 W folderze Dokumentacja jest wygenerowana dokumentacja w HTML, oraz instrukcja instalacji, usunięcia i użycia programu.
+
 W folderze CRUD znajduje się:
  - folder CRUD - główny folder z projektem aplikacji
  - folder CrudWPFSetup - folder z projektem instalatora
