@@ -14,25 +14,34 @@ using System.Windows.Shapes;
 
 namespace CRUD
 {
-
+    /// <summary>
+    /// Klasa odpowiadajaca za aktualizowanie zamowienia.
+    /// </summary>
     public partial class UpdatePage : Window
     {
 
-        CrudWPF _db = new CrudWPF();
-        int id;
+
+        private int OrderId { get; set; }
+
+        public string ProductNameTextBox => productNameTextBox.Text;
+        public string FirstNameTextBox => firstNameTextBox.Text;
+        public string LastNameTextBox => lastNameTextBox.Text;
+        public string PhoneNumberTextBox => phoneNumberTextBox.Text;
+        public string OrderDateTextBox => orderDateTextBox.Text;
+        public string OrderEndDateTextBox => orderEndDateTextBox.Text;
+
+        public string QuantityTextBox => quantityTextBox.Text;
+
         public UpdatePage(int orderId)   // Konstruktor klasy updatePage(pobiera wartość orderId z UpdateButton_Click)
         {
             InitializeComponent();
-            id = orderId;               //  Przypisanie wartości orderId do zmiennej id
+            OrderId = orderId;               //  Przypisanie wartości orderId do zmiennej id
             FillinTextBox();            //  Wywołanie metody
-
         }
 
         private void FillinTextBox()    // Metoda która wpisuje do TextBoxów odpowiednie dane z bazy danych bazując na id
         {
-            Order updateOrder = (from m in _db.Order
-                                 where m.OrderId == id
-                                 select m).Single();
+            Order updateOrder = OrderDbHandler.ReadOrder(OrderId);
 
             productNameTextBox.Text = updateOrder.Product;
             quantityTextBox.Text = Convert.ToString(updateOrder.Quantity);
@@ -43,109 +52,31 @@ namespace CRUD
             orderEndDateTextBox.Text = updateOrder.OrderEndDate;
         }
 
-        public string ProductNameTextBox
-        {
-            get { return productNameTextBox.Text; }
-
-
-
-        }
-        public string FirstNameTextBox
-        {
-            get { return firstNameTextBox.Text; }
-
-
-        }
-        public string LastNameTextBox
-        {
-            get { return lastNameTextBox.Text; }
-
-
-        }
-        public string PhoneNumberTextBox
-        {
-            get { return phoneNumberTextBox.Text; }
-
-
-        }
-        public string OrderDateTextBox
-        {
-            get { return orderDateTextBox.Text; }
-
-
-
-        }
-
-        public string OrderEndDateTextBox
-        {
-            get { return orderEndDateTextBox.Text; }
-        }
-
-        public string QuantityTextBox
-        {
-            get { return quantityTextBox.Text; }
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
         private void UpdateButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych po kliknięciu przycisku UpdateButton
         {
-
-            int insertOrUpdate = 2; // '2' oznacza aktualizację zamówienia w klasie SaveTo Db
-
-
-
-
-            try
-            {
-
-
-                SaveToDb DbInsert = new SaveToDb(ProductNameTextBox, FirstNameTextBox, LastNameTextBox, PhoneNumberTextBox, OrderDateTextBox, OrderEndDateTextBox, QuantityTextBox, insertOrUpdate, id);
-                MessageBox.Show("Zamówienie zaktualizowane !");
-                this.Hide();
-            }
-
-            catch (ArgumentException error)
-            {
-                MessageBox.Show(Convert.ToString(error.Message)); // Komunikat o błędzie w przypadku wystąpienia pobierany z klasy InputCheck 
-            }
-
-
+            UpdateOrder();
+            Hide();
         }
 
         private void UpdateButton_KeyDown(object sender, KeyEventArgs e)//Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych po naciśnięciu Enter na przycisku UpdateButton
         {
             if (e.Key == Key.Enter)
             {
-                int insertOrUpdate = 2; // '2' oznacza aktualizację zamówienia w klasie SaveTo Db
+                UpdateOrder();
+                Hide();
+            }
+        }
 
-
-
-
-                try
-                {
-
-
-                    SaveToDb DbInsert = new SaveToDb(ProductNameTextBox, FirstNameTextBox, LastNameTextBox, PhoneNumberTextBox, OrderDateTextBox, OrderEndDateTextBox, QuantityTextBox, insertOrUpdate, id);
-                    MessageBox.Show("Zamówienie zaktualizowane !");
-                    this.Hide();
-                }
-
-                catch (ArgumentException error)
-                {
-                    MessageBox.Show(Convert.ToString(error.Message)); // Komunikat o błędzie w przypadku wystąpienia pobierany z klasy InputCheck 
-                }
+        private void UpdateOrder()
+        {
+            try
+            {
+                OrderDbHandler.UpdateOrder(ProductNameTextBox, FirstNameTextBox, LastNameTextBox, PhoneNumberTextBox, OrderDateTextBox, OrderEndDateTextBox, QuantityTextBox, OrderId);
+                MessageBox.Show("Zamówienie zaktualizowane !");
+            }
+            catch (ArgumentException exception)
+            {
+                MessageBox.Show(exception.Message, "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); // Komunikat o błędzie w przypadku wystąpienia pobierany z klasy InputCheck 
             }
         }
     }
