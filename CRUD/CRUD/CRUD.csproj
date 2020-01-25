@@ -82,7 +82,7 @@
     <Compile Include="Order.cs">
       <DependentUpon>CrudWPF.tt</DependentUpon>
     </Compile>
-    <Compile Include="SaveToDb.cs" />
+    <Compile Include="OrderDbHandler.cs" />
     <Compile Include="UpdatePage.xaml.cs">
       <DependentUpon>UpdatePage.xaml</DependentUpon>
     </Compile>

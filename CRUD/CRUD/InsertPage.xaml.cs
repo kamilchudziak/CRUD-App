@@ -14,132 +14,61 @@ using System.Windows.Shapes;
 
 namespace CRUD
 {
-
+    /// <summary>
+    /// Klasa odpowiadajaca za stworzenie zamowienia.
+    /// </summary>
     public partial class InsertPage : Window
     {
+        private string FirstNameTextBox => firstNameTextBox.Text;
+        private string LastNameTextBox => lastNameTextBox.Text;
+        private string PhoneNumberTextBox => phoneNumberTextBox.Text;
+        private string OrderDateTextBox => orderDateTextBox.Text;
+        private string ProductNameTextBox => productNameTextBox.Text;
+        private string QuantityTextBox => quantityTextBox.Text;
 
-
-        //CrudWPF _db = new CrudWPF();
         public InsertPage()
         {
             InitializeComponent();
-
         }
 
-        private string ProductNameTextBox
+        /// <summary>
+        /// Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych po kliknięciu przycisku AddButton
+        /// </summary>
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            get { return productNameTextBox.Text; }
-
-
-
-        }
-        private string FirstNameTextBox
-        {
-            get { return firstNameTextBox.Text; }
-
-
-        }
-        private string LastNameTextBox
-        {
-            get { return lastNameTextBox.Text; }
-
-
-        }
-        private string PhoneNumberTextBox
-        {
-            get { return phoneNumberTextBox.Text; }
-
-
-        }
-        private string OrderDateTextBox
-        {
-            get { return orderDateTextBox.Text; }
-
-
+            CreateOrder();
         }
 
-        private string OrderEndDateTextBox
+        /// <summary>
+        /// Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych po naciśnięciu Enter na przycisku AddButton
+        /// </summary>
+        private void AddButton_KeyDown(object sender, KeyEventArgs e)
         {
-            get { return null; }
-        }
-
-        private string QuantityTextBox
-        {
-            get { return quantityTextBox.Text; }
-
-
-        }
-
-
-
-
-
-
-
-        private void AddButton_Click(object sender, RoutedEventArgs e) //Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych po kliknięciu przycisku AddButton
-        {
-            int insertOrUpdate = 1; // '1' oznacza dodanie nowego zamówienia w klasie SaveTo Db
-            int id = 0; // tylko dla przesłania zmiennej
-
-
-
-            try
-            {
-
-
-                SaveToDb DbInsert = new SaveToDb(ProductNameTextBox, FirstNameTextBox, LastNameTextBox, PhoneNumberTextBox, OrderDateTextBox, OrderEndDateTextBox, QuantityTextBox, insertOrUpdate, id);
-                MessageBox.Show("Zamówienie dodane !");
-                this.Hide();
-
-            }
-
-            catch (ArgumentException error)
-            {
-                MessageBox.Show(Convert.ToString(error.Message)); // Komunikat o błędzie w przypadku wystąpienia pobierany z klasy InputCheck 
-            }
-
-
-
-
-
-        }
-
-
-        private void AddButton_KeyDown(object sender, KeyEventArgs e)//Metoda która przesyła wprowadzone przez użytkownika dane do bazy danych po naciśnięciu Enter na przycisku AddButton
-        {
-
             if (e.Key == Key.Enter)
             {
-                int insertOrUpdate = 1; // '1' oznacza dodanie nowego zamówienia w klasie SaveTo Db
-                int id = 0; // tylko dla przesłania zmiennej
-
-                try
-                {
-
-
-                    SaveToDb DbInsert = new SaveToDb(ProductNameTextBox, FirstNameTextBox, LastNameTextBox, PhoneNumberTextBox, OrderDateTextBox, OrderEndDateTextBox, QuantityTextBox, insertOrUpdate, id);
-                    MessageBox.Show("Zamówienie dodane !");
-                    this.Hide();
-
-                }
-
-                catch (ArgumentException error)
-                {
-                    MessageBox.Show(Convert.ToString(error.Message)); // Komunikat o błędzie w przypadku wystąpienia pobierany z klasy InputCheck 
-                }
+                CreateOrder();
             }
+        }
 
+        /// <summary>
+        /// Stworzenie zamowienia
+        /// </summary>
+        private void CreateOrder()
+        {
+            try
+            {
+                OrderDbHandler.CreateOrder(ProductNameTextBox, FirstNameTextBox, LastNameTextBox,
+                    PhoneNumberTextBox, OrderDateTextBox, QuantityTextBox);
+
+                MessageBox.Show("Zamówienie dodane !");
+                this.Hide();
+            }
+            catch (ArgumentException exception)
+            {
+                MessageBox.Show(exception.Message, "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); // Komunikat o błędzie w przypadku wystąpienia pobierany z klasy InputCheck 
+            }
         }
     }
-
-
-
-
-
-
-
-
-
 }
 
 

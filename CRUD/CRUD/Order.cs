@@ -12,6 +12,9 @@ namespace CRUD
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Model zamowienia
+    /// </summary>
     public partial class Order
     {
         public int OrderId { get; set; }

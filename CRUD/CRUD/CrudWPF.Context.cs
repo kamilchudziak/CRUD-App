@@ -13,10 +13,13 @@ namespace CRUD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CrudWPF : DbContext
+    /// <summary>
+    /// Klasa odpowiedzialna za polaczenie z baza danych
+    /// </summary>
+    public partial class CrudWPFEntities : DbContext
     {
-        public CrudWPF()
-            : base("name=CrudWPF")
+        public CrudWPFEntities()
+            : base("name=CrudWPFEntities")
         {
         }
     

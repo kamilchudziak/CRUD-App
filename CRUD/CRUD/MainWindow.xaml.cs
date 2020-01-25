@@ -15,46 +15,70 @@ using System.Windows.Shapes;
 
 namespace CRUD
 {
-
+    /// <summary>
+    /// Glowne okno programu
+    /// </summary>
     public partial class MainWindow : Window
     {
-
-        CrudWPF _db = new CrudWPF(); // WPFCrud - Nazwa Entity Container 
-        public static DataGrid datagrid;
-
-
+        public static DataGrid DataGrid { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            Load();
+            try
+            {
+                OrderDbHandler.OpenDatabaseConnection();
+                LoadOrders();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
-
-        private void Load()
+        
+        /// <summary>
+        /// Zamkniecie glownego okna
+        /// </summary>
+        protected override void OnClosed(EventArgs e)
         {
-            DataTable.ItemsSource = _db.Order.ToList();
-            datagrid = DataTable;
+            base.OnClosed(e);
+            OrderDbHandler.CloseDatabaseConnection();
         }
 
+        /// <summary>
+        /// Wczytanie zamowien z bazy danych i umieszczenie ich w tabeli
+        /// </summary>
+        private void LoadOrders()
+        {
+            DataTable.ItemsSource = OrderDbHandler.ReadAllOrders();//_db.Order.ToList();
+            DataGrid = DataTable;
+        }
+
+        /// <summary>
+        /// Otwarcie okna tworzenia zamowienia.
+        /// </summary>
         private void InsertButton_Click(object sender, RoutedEventArgs e)
         {
             InsertPage AddRecord = new InsertPage();
             AddRecord.ShowDialog();
         }
 
+        /// <summary>
+        /// Otwarcie okna aktualizacji zamowienia
+        /// </summary>
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-
-
             if (DataTable.SelectedItem != null)
             {
                 int id = (DataTable.SelectedItem as Order).OrderId;
                 UpdatePage EditRecord = new UpdatePage(id);
                 EditRecord.ShowDialog();
             }
-
         }
 
+        /// <summary>
+        /// Usuniecie, aktualnie zaznaczonego rekordu, z bazy danych
+        /// </summary>
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataTable.SelectedItem != null)
@@ -63,20 +87,30 @@ namespace CRUD
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-                        int id = (DataTable.SelectedItem as Order).OrderId;
-                        var deleteOrder = _db.Order.Where(m => m.OrderId == id).Single();
-                        _db.Order.Remove(deleteOrder);
-                        _db.SaveChanges();
-                        DataTable.ItemsSource = _db.Order.ToList();
-
+                        RemoveOrder(DataTable.SelectedItem as Order);
+                        LoadOrders();
                         MessageBox.Show("Rekord został usunięty pomyślnie", "Potwiedzenie operacji");
                         break;
 
                     case MessageBoxResult.No:
                         break;
-
                 }
+            }
+        }
 
+        /// <summary>
+        /// Usuniecie, rekordu o podanym identyfikatorze, z bazy danych.
+        /// </summary>
+        /// <param name="orderId">Identyfikator zamowienia</param>
+        private void RemoveOrder(Order orderToRemove)
+        {
+            if (orderToRemove != null)
+            {
+                OrderDbHandler.DeleteOrder(orderToRemove.OrderId);
+            }
+            else
+            {
+                MessageBox.Show("Nie zaznaczono rekordu", "Warning");
             }
         }
     }
